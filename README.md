@@ -71,7 +71,8 @@ router.get("/think", async (req, res) => {
 - Ta có thể thấy `"x-real-ip", "x-forwarded-for" và "x-forwarded-for" không hề có trong request mà ta gửi. Có thể suy ra được các header này được Proxy thêm vào trong quá trình gửi request
 -  Vậy `proxy_set_header Host $host` thì sao, ta có sẵn Host trong header nên /think trả về "host":"94.237.48.147". Vậy nếu ta không truyền "Host", hoặc Host rỗng thì sao? ~~thì Bad Reuqest :)))~~
 -
-```curl -H "Host:" http://94.237.48.147:49291/think
+```
+curl -H "Host:" http://94.237.48.147:49291/think
 <html>
 <head><title>400 Bad Request</title></head>
 <body>
