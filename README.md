@@ -39,7 +39,7 @@ server {
 
         location /guardian {
                         proxy_pass http://localhost:1337;
-                        proxy_set_header Host $host;
+                        proxy_set_header Host $host; 
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_set_header X-Forwarded-Proto $scheme;
@@ -58,7 +58,7 @@ router.get("/think", async (req, res) => {
    "host":"94.237.48.147",
    "x-real-ip":"10.30.18.144",
    "x-forwarded-for":"10.30.18.144",
-   "x-forwarded-proto":"http",
+   "x-forwarded-for:"http",
    "connection":"close",
    "accept-language":"en-US,en;q=0.9",
    "upgrade-insecure-requests":"1",
@@ -67,5 +67,16 @@ router.get("/think", async (req, res) => {
    "accept-encoding":"gzip, deflate, br",
    "if-none-match":"W/\"1ff-LedyLfO3NsGXjDLDeEoUwvsCLx8\""
 }
-
+```
+- Ta có thể thấy `"x-real-ip", "x-forwarded-for" và "x-forwarded-for" không hề có trong request mà ta gửi. Có thể suy ra được các header này được Proxy thêm vào trong quá trình gửi request
+-  Vậy `proxy_set_header Host $host` thì sao, ta có sẵn Host trong header nên /think trả về "host":"94.237.48.147". Vậy nếu ta không truyền "Host", hoặc Host rỗng thì sao? ~~thì Bad Reuqest :)))~~
+-
+```curl -H "Host:" http://94.237.48.147:49291/think
+<html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
 ```
