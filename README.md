@@ -3,7 +3,7 @@
 ### Solution
 
 - Server config /alley và /think `listen 80 default_server;
-        server_name alley.$SECRET_ALLEY;`
+        server_name alley.$SECRET_ALLEY;` nhưng chỉ có ` server_name guardian.$SECRET_ALLEY;` cho `/guardian`
 ```config
 server {
         listen 80 default_server;
