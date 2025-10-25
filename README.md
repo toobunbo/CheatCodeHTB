@@ -1,6 +1,9 @@
 # CheatCodeHTB
 ## Dusty Alleys
+### Solution
 
+- Server config /alley và /think `listen 80 default_server;
+        server_name alley.$SECRET_ALLEY;`
 ```config
 server {
         listen 80 default_server;
