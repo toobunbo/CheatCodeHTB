@@ -4,6 +4,7 @@
 
 - Server config /alley và /think `listen 80 default_server;
         server_name alley.$SECRET_ALLEY;` nhưng chỉ có ` server_name guardian.$SECRET_ALLEY;` cho `/guardian`
+=> Ta cần `$SECRET_ALLAY` để truy cập endpoint /guardian ~~nơi chứa SSRF~~
 ```config
 server {
         listen 80 default_server;
@@ -44,4 +45,10 @@ server {
                         proxy_set_header X-Forwarded-Proto $scheme;
         }
 }
+```
+- Endpoint `/think` trả về request header
+```
+router.get("/think", async (req, res) => {
+  return res.json(req.headers);
+});
 ```
